@@ -1,0 +1,22 @@
+<ng-template #menu>
+  <div cdkMenu>
+    <ng-container *ngFor="let item of items">
+      <ng-container *ngIf="hasChildren(item); else leafNode">
+        <button
+          cdkMenuItem
+          [cdkMenuTriggerFor]="subMenu"
+          *ngIf="sub.menu as subMenu"
+        >
+          <div>{{ item.label }}</div>
+          <div *ngIf="item.children">▸</div>
+        </button>
+        <app-menu #sub [items]="item.children!"></app-menu>
+      </ng-container>
+      <ng-template #leafNode>
+        <button cdkMenuItem>
+          {{ item.label }}
+        </button>
+      </ng-template>
+    </ng-container>
+  </div>
+</ng-template>
