@@ -5,12 +5,12 @@
         <button
           cdkMenuItem
           [cdkMenuTriggerFor]="subMenu"
-          *ngIf="sub.menu as subMenu"
+          *ngIf="menuComponent.menu as subMenu"
         >
           <div>{{ item.label }}</div>
           <div *ngIf="item.children">▸</div>
         </button>
-        <app-menu #sub [items]="item.children!"></app-menu>
+        <app-menu #menuComponent [items]="item.children!"></app-menu>
       </ng-container>
       <ng-template #leafNode>
         <button cdkMenuItem>
