@@ -21,6 +21,10 @@ export class AppComponent {
             { label: 'New File' },
           ],
         },
+        {
+          label: 'Open',
+          children: [{ label: 'Browse...' }, { label: 'Recent' }],
+        },
       ],
     },
     {
